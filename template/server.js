@@ -8,21 +8,20 @@ const app = express();
 app.use(express.json()); // Middleware to parse JSON body
 
 // Define a port
-const PORT = 3000;
+const PORT = 3000
 
-
-// Define a simple route
-app.get('/', (req, res) => {  //req, res cycle
-    console.log("GET route hit / - ")
-    res.send('From Get req on Server!');  //response
-});
-
-
+app.get("/pokemon", (req, res) => {
+    console.log("pokemon hit")
+    res.json({msg: "pokemon hit"})
+})
+app.get("/", (req, res) => {
+    console.log("/ endpoint  hit")
+})
 
 // Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+app.listen(PORT, () => {   
+     console.log(`Server is running on http://localhost:${PORT}`);
+     });
 
 
 
