@@ -30,14 +30,17 @@ app.post('/items', (req, res) => {
 
 app.get('/users', (req, res) => {
     res.json(users);
+    console.log("Usernames:")
 });
 
 app.get('/passwords', (req, res) => {
     res.json(passwords);
+    console.log("Passwords")
 });
 
 app.get('/items', (req, res) => {
     res.json(items);
+    console.log("Items:")
 });
 
 app.delete('/users/:id', (req, res) => {
