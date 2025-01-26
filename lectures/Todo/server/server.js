@@ -9,7 +9,7 @@ app.use(express.json())
 require('dotenv').config()
 
 const PORT = 3000
-
+// to make a database lines 13-21
 const Schema = mongoose.Schema
 
 const ToDoSchema = new Schema(
@@ -46,11 +46,30 @@ app.post("/create", (req, res) => {
 
 })
 
+app.delete("/delete/:id", async (req, res) => {
+    console.log("Delete route hit")
+    await ToDo.findByIdAndDelete(req.params.id);
+    res.json({message: "Todo deleted"});
+});
+
+app.put("/update/:id", async (req, res) => {
+    const updatedTodo = await ToDo.findByIdAndUpdate(
+        req.params.id,
+        { completed: req.body},
+        { new: true }
+    );
+    res.json(updatedTodo);
+});
+
+
+
 app.listen(PORT, () => {
 
     mongoose.connect(process.env.MONGO_URI)
         .then(() => {
             console.log("Connected to Database")
         })
+        .catch(err => console.log(err))
+
     console.log(`Server is runnning on port ${PORT}`)
 })
