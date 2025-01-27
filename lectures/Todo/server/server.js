@@ -55,7 +55,7 @@ app.delete("/delete/:id", async (req, res) => {
 app.put("/update/:id", async (req, res) => {
     const updatedTodo = await ToDo.findByIdAndUpdate(
         req.params.id,
-        { completed: req.body},
+        req.body,
         { new: true }
     );
     res.json(updatedTodo);

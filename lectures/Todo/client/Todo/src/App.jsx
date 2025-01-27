@@ -77,7 +77,7 @@ function App() {
         url: `http://localhost:3000/update/${id}`,
         data: { todo: editingText}, //send updated text to the backend
       })
-      .the((res) => {
+      .then((res) => {
         console.log("Todo Updated:", res); //refresh the list from the server after updating
         axios({
           method: "get",
@@ -115,7 +115,7 @@ function App() {
               <div key={item._id}
               style={{ border: '2px solid cyan',
                 margin: "10px",
-                padding: "10px"
+                padding: "10px",
                }}>
                 {editingId === item._id ? (
                   //edit mode
