@@ -10,7 +10,7 @@ function App() {
   
   const [data, setData] = useState()
   
-  const [newTodo, setNewTodo] = useState("")
+  const [newTodo, setNewTodo] = useState("") //state for new todo
 
   const [editingId, setEditingId] = useState(null); //stat for todo being edited
 
