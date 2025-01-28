@@ -11,6 +11,12 @@ function App() {
 
   // test
   // test
+  // test
+  const [newToDo, setNewToDo] = useState({
+    todo: "",
+    created: Date.now(),
+  });
+  // test
   const [newToDo, setNewToDo] = useState({
     todo: "",
     created: Date.now(),
