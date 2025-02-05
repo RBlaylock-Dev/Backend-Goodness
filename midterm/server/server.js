@@ -17,7 +17,7 @@ const ToDoSchema = new Schema(
             required: true
         },
         created: Number,
-        updated: Date.now()
+        updated: Number
     }
 );
 
